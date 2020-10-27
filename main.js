@@ -7,6 +7,7 @@ if (handleSquirrelEvent()) {
 }
 
 // Main.js
+require('update-electron-app')();
 const { BrowserWindow, dialog, ipcRenderer } = require('electron');
 const { networkInterfaces } = require('os');
 const fs = require('fs');
