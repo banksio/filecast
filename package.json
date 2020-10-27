@@ -1,11 +1,11 @@
 {
   "name": "filecast",
-  "version": "0.1.0",
+  "version": "0.1.0-alpha",
   "description": "A small app to cast local files to a Chromecast.",
   "main": "main.js",
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/banksio/filecast.git"
+    "type": "git",
+    "url": "https://github.com/banksio/filecast.git"
   },
   "dependencies": {
     "electron-squirrel-startup": "^1.0.0",
