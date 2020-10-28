@@ -18,6 +18,7 @@
     "@electron-forge/maker-rpm": "^6.0.0-beta.54",
     "@electron-forge/maker-squirrel": "^6.0.0-beta.54",
     "@electron-forge/maker-zip": "^6.0.0-beta.54",
+    "@electron-forge/publisher-github": "^6.0.0-beta.54",
     "electron": "^10.1.5",
     "eslint": "^7.12.1"
   },
@@ -25,7 +26,8 @@
     "start": "electron-forge start",
     "test": "echo \"Error: no test specified\" && exit 1",
     "package": "electron-forge package",
-    "make": "electron-forge make"
+    "make": "electron-forge make",
+    "publish": "electron-forge publish"
   },
   "author": "banksio",
   "license": "ISC",
@@ -54,16 +56,18 @@
           "config": {}
         }
       ],
-      "publishers": {
-        "name": "@electron-forge/publisher-github",
-        "config": {
-          "repository": {
-            "owner": "banksio",
-            "name": "filecast"
-          },
-          "prerelease": true
+      "publishers": [
+        {
+          "name": "@electron-forge/publisher-github",
+          "config": {
+            "repository": {
+              "owner": "banksio",
+              "name": "filecast"
+            },
+            "prerelease": true
+          }
         }
-      }
+      ]
     }
   }
 }
