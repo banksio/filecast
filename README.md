@@ -14,7 +14,7 @@ Currently in alpha: There will still be some rough edges, but please feel free t
 ### Windows
 Just grab the latest setup .exe from the [releases](https://github.com/banksio/filecast/releases/latest) page.
 
-**If you find an bug or would like to request a feature, please [submit an issue](https://github.com/banksio/remote-media/issues).**
+**If you find an bug or would like to request a feature, please [submit an issue](https://github.com/banksio/filecast/issues).**
 
 ## Development
 To develop for remote-media, just follow the instructions listed.
