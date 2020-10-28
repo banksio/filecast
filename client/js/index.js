@@ -33,7 +33,7 @@ function play() {
 
 function playURL(url) {
     var castSession = cast.framework.CastContext.getInstance().getCurrentSession();
-    alert(inputMediaType.value);
+    // alert(inputMediaType.value);
     var mediaInfo = new chrome.cast.media.MediaInfo(url, inputMediaType.value);
     var request = new chrome.cast.media.LoadRequest(mediaInfo);
     castSession.loadMedia(request).then(
@@ -80,7 +80,7 @@ async function getFileList() {
         }
         for (button of document.getElementsByClassName("fileBtn")) {
             button.addEventListener("click", (event) => {
-                alert("http://" + IP.lan + "/media/" + event.target.innerText);
+                // alert("http://" + IP.lan + "/media/" + event.target.innerText);
                 playURL("http://" + IP.lan + "/media/" + event.target.innerText);
             })
         }
