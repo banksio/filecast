@@ -1,10 +1,11 @@
 // In the Renderer process
-const { ipcRenderer } = require('electron')
+const { ipcRenderer, shell } = require('electron')
 
 // const castBtn = document.getElementById("castNow");
 const btnFolderPicker = document.getElementById("btn-folderpicker");
 const textStatusFolderPath = document.getElementById("status-path");
 const listFilesDiscovered = document.getElementById("list-files");
+const btnOpenClienet = document.getElementById("btnOpenClient");
 // const castName = document.getElementById("castDevice");
 // const subnet = document.getElementById("ip");
 
@@ -27,3 +28,6 @@ btnFolderPicker.addEventListener("click", () => {
     });
 })
 
+btnOpenClienet.addEventListener("click", (event) => {
+    shell.openExternal("http://localhost/");
+})
