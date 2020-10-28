@@ -7,6 +7,7 @@ window['__onGCastApiAvailable'] = function (isAvailable) {
 const listFilesDiscovered = document.getElementById("list-files");
 const statusIP = document.getElementById("status-ip");
 const btnFileRescan = document.getElementById("btnFileRescan");
+const inputMediaType = document.getElementById("input-cast-mediatype");
 
 initializeCastApi = function () {
     cast.framework.CastContext.getInstance().setOptions({
@@ -20,7 +21,7 @@ initializeCastApi = function () {
 function play() {
     var castSession = cast.framework.CastContext.getInstance().getCurrentSession();
 
-    var mediaInfo = new chrome.cast.media.MediaInfo("http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_high/ak/bbc_radio_two.m3u8", "audio/flac");
+    var mediaInfo = new chrome.cast.media.MediaInfo("http://a.files.bbci.co.uk/media/live/manifesto/audio/simulcast/hls/uk/sbr_high/ak/bbc_radio_two.m3u8", inputMediaType.value);
     var request = new chrome.cast.media.LoadRequest(mediaInfo);
     castSession.loadMedia(request).then(
         function () { console.log('Load succeed'); },
@@ -32,8 +33,8 @@ function play() {
 
 function playURL(url) {
     var castSession = cast.framework.CastContext.getInstance().getCurrentSession();
-
-    var mediaInfo = new chrome.cast.media.MediaInfo(url, "audio/flac");
+    alert(inputMediaType.value);
+    var mediaInfo = new chrome.cast.media.MediaInfo(url, inputMediaType.value);
     var request = new chrome.cast.media.LoadRequest(mediaInfo);
     castSession.loadMedia(request).then(
         function () { console.log('Load succeed'); },
