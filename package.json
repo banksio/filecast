@@ -21,7 +21,7 @@
     "start": "electron .",
     "pack": "electron-builder --dir",
     "dist": "electron-builder",
-    "publish": "electron-builder --publish"
+    "publish": "electron-builder --publish onTagOrDraft"
   },
   "author": "banksio",
   "license": "ISC",
