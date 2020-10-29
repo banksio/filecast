@@ -13,6 +13,7 @@ const btnOpenClienet = document.getElementById("btnOpenClient");
 //     ipcRenderer.invoke('folder-select');
 // })
 
+
 btnFolderPicker.addEventListener("click", () => {
     ipcRenderer.invoke('folder-select').then((result) => {
         if (result.fpr) {

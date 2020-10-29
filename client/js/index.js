@@ -5,7 +5,7 @@ window['__onGCastApiAvailable'] = function (isAvailable) {
 };
 
 const listFilesDiscovered = document.getElementById("list-files");
-const statusIP = document.getElementById("status-ip");
+const selectIP = document.getElementById("select-ip");
 const btnFileRescan = document.getElementById("btnFileRescan");
 const inputMediaType = document.getElementById("input-cast-mediatype");
 
@@ -55,12 +55,29 @@ btnFileRescan.addEventListener("click", (event) => {
     getFileList();
 })
 
+selectIP.addEventListener("change", (event) => {
+    updateLANIP(event.target.value);
+})
+
 const IP = {}
 
-getIP().then(text => {
-    statusIP.innerText = text;
-    IP.lan = text;
-});
+function updateLANIP(newIP) {
+    IP.lan = newIP;
+}
+
+getIP().then(frontendUpdateIPSelector());
+
+function frontendUpdateIPSelector() {
+    return json => {
+        selectIP.innerHTML = "";
+        let first = true;
+        for (ip of json) {
+            selectIP.innerHTML = selectIP.innerHTML + "<option " + (first ? "selected " : "") + "value='" + ip + "'>" + ip + "</option>";
+            if (first) updateLANIP(ip);
+            first = false;
+        }
+    };
+}
 
 async function getFileList() {
     fetch("http://" + window.location.hostname + "/media").then(response => {
@@ -93,7 +110,7 @@ async function getIP() {
     const response = await fetch("http://" + window.location.hostname + "/ip").catch((err) => {
         alert(err);
     });
-    return await response.text();
+    return await response.json();
 }
 
 getFileList();

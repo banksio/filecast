@@ -59,7 +59,7 @@ autoUpdater.on('update-downloaded', (info) => {
 
 //-------------------------------------------------------------------
 
-app.on('ready', function()  {
+app.on('ready', function () {
   autoUpdater.checkForUpdatesAndNotify();
 });
 
@@ -85,11 +85,11 @@ function createWindow() {
           role: 'about'
         }]
     }
-])
-Menu.setApplicationMenu(menu); 
+  ])
+  Menu.setApplicationMenu(menu);
 
   win.loadFile('app/index.html')
-  // win.webContents.openDevTools()
+  win.webContents.openDevTools()
 }
 
 app.whenReady().then(createWindow)
@@ -148,10 +148,10 @@ async function selectFolder() {
 function getFullPathsFromDir(folderPath) {
   let fullPaths = [];
   let dir = fs.readdirSync(folderPath);
-    for (let filePath of dir) {
-      let absPath = path.join(folderPath, filePath);
-      if (fs.lstatSync(absPath).isDirectory()) continue;
-      fullPaths.push(filePath);
-    }
+  for (let filePath of dir) {
+    let absPath = path.join(folderPath, filePath);
+    if (fs.lstatSync(absPath).isDirectory()) continue;
+    fullPaths.push(filePath);
+  }
   return fullPaths;
 }

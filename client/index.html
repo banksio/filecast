@@ -24,9 +24,14 @@
       </ul>
 
       <div class="d-flex">
-        <span class="navbar-text mr-3" id="status-ip">
+        <!-- <span class="navbar-text mr-3" id="status-ip">
           Getting IP...
-        </span>
+        </span> -->
+        <div class="mr-3">
+          <select class="form-select form-select-sm" id="select-ip" aria-label="Local IP selection box">
+            <option selected>Getting IP...</option>
+          </select>
+        </div>
         <div class="container-btn-cast">
           <google-cast-launcher class="btn-cast"></google-cast-launcher>
         </div>
