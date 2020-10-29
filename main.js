@@ -106,6 +106,11 @@ app.on('activate', () => {
   }
 })
 
+app.setAboutPanelOptions({
+  applicationName: "FileCast",
+  "applicationVersion": "v" + app.getVersion()
+})
+
 // Events
 // In the Main process
 const { ipcMain } = require('electron')
