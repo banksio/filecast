@@ -1,40 +1,24 @@
 // Main.js
-const { app, BrowserWindow, dialog, ipcRenderer, Menu } = require('electron');
-const log = require('electron-log');
-const { autoUpdater } = require("electron-updater");
 const { networkInterfaces } = require('os');
 const fs = require('fs');
 const path = require('path');
+
+const { app, BrowserWindow, dialog, ipcRenderer, Menu } = require('electron');
+
+const log = require('electron-log');
+const { autoUpdater } = require("electron-updater");
+
 const express = require('express');
 
 autoUpdater.logger = log;
 autoUpdater.logger.transports.file.level = 'info';
 log.info('App starting...');
 
-//-------------------------------------------------------------------
-// Open a window that displays the version
-//
-// THIS SECTION IS NOT REQUIRED
-//
-// This isn't required for auto-updates to work, but it's easier
-// for the app to show a window than to have to click "About" to see
-// that updates are working.
-//-------------------------------------------------------------------
-let win;
-
 function sendStatusToWindow(text) {
   log.info(text);
   // win.webContents.send('message', text);
 }
-// function createDefaultWindow() {
-//   win = new BrowserWindow();
-//   win.webContents.openDevTools();
-//   win.on('closed', () => {
-//     win = null;
-//   });
-//   win.loadURL(`file://${__dirname}/version.html#v${app.getVersion()}`);
-//   return win;
-// }
+
 autoUpdater.on('checking-for-update', () => {
   sendStatusToWindow('Checking for update...');
 })
@@ -70,6 +54,7 @@ function createWindow() {
     width: 800,
     height: 600,
     webPreferences: {
+      contextIsolation: false,
       nodeIntegration: true
     }
   })
