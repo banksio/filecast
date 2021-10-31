@@ -17,7 +17,7 @@ Just grab the latest setup .exe from the [releases](https://github.com/banksio/f
 **If you find an bug or would like to request a feature, please [submit an issue](https://github.com/banksio/filecast/issues).**
 
 ## Development
-To develop for remote-media, just follow the instructions listed.
+To develop for filecast, just follow the instructions listed.
 ### Prerequisites
 * Node.js and npm
 
