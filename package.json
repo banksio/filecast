@@ -1,6 +1,6 @@
 {
   "name": "filecast",
-  "version": "0.4.3",
+  "version": "0.4.4",
   "description": "A small app to cast local files to a Chromecast.",
   "main": "main.js",
   "repository": {
